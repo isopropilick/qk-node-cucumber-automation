@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Minimal project to show how to setup  [cucumber](http: //cukes.info/) for nodejs environment",
   "scripts": {
-    "test": "./node_modules/.bin/cucumber-js --format ./features/reporter.js"
+    "test": "./node_modules/.bin/cucumber-js --format ./features/reporter.js:./dummy.txt"
   },
   "keywords": [
     "cucumberjs",
