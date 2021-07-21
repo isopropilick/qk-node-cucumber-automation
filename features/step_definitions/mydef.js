@@ -83,13 +83,13 @@ defineSupportCode(function({Given, When, Then}) {
   return this.driver.findElement({id:"country"}).sendKeys('MEXICO');
   });
   Then('Selecciono un estado',{timeout: 60 * 1000}, function () {
-  return this.driver.findElement({id:"state"}).sendKeys('CIUDAD DE MÉXICO');
+  return this.driver.findElement({css:"#state > option:nth-child(7)"}).click();
   });
   Then('Selecciono una delegacion',{timeout: 60 * 1000}, function () {
-  return this.driver.findElement({id:"delegation"}).sendKeys('BENITO JUÁREZ');
+  return this.driver.findElement({css:"#delegation > option:nth-child(4)"}).click();
   });
   Then('Selecciono una colonia',{timeout: 60 * 1000}, function () {
-  return this.driver.findElement({id:"colony"}).sendKeys('ÁLAMOS');
+  return this.driver.findElement({css:"#colony > option:nth-child(5)"}).click();
   });
   Then('Ingreso mi calle',{timeout: 60 * 1000}, function () {
   return this.driver.findElement({id:"street"}).sendKeys('Bolivar');
