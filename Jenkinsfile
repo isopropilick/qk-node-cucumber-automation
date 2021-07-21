@@ -32,7 +32,7 @@ pipeline {
         stage('Lighthouse test'){
             steps{
             sh 'mkdir lighthouse-report'
-            sh 'lighthouse --chrome-flags="--disable-gpu --headless --enable-logging --no-sandbox" --output json --output html --output-path ./lighthouse-report/report.json http://test.tiendaluzsavinon.com:9091/ '
+            sh 'lighthouse --chrome-flags="--disable-gpu --headless --enable-logging --no-sandbox" --output json --output html --output-path lighthouse-report/report.json http://test.tiendaluzsavinon.com:9091/ '
             }
              post {
                     always {
