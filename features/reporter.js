@@ -1,11 +1,12 @@
-var CucumberJSAllureFormatter = require("cucumberjs-allure2-reporter").CucumberJSAllureFormatter;
-var AllureRuntime = require("cucumberjs-allure2-reporter").AllureRuntime;
+const { CucumberJSAllureFormatter } = require("allure-cucumberjs");
+const { AllureRuntime } = require("allure-cucumberjs");
 
 function Reporter(options) {
-    CucumberJSAllureFormatter.call(this,
+    return new CucumberJSAllureFormatter(
         options,
-        new AllureRuntime({ resultsDir: "./out/allure-results" }),
-        {});
+        new AllureRuntime({ resultsDir: "./allure-results" }),
+        {}
+    );
 }
 Reporter.prototype = Object.create(CucumberJSAllureFormatter.prototype);
 Reporter.prototype.constructor = Reporter;
