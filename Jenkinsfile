@@ -32,6 +32,7 @@ pipeline {
         stage('Lighthouse test'){
             steps{
             sh 'rm -r lighthouse-report'
+            sh 'rm lighthouse-report.zip'
             sh 'mkdir lighthouse-report'
             sh 'lighthouse --throttling.cpuSlowdownMultiplier=5 --chrome-flags="--disable-gpu --headless --enable-logging --no-sandbox" --output json --output html --output-path lighthouse-report/report.json http://test.tiendaluzsavinon.com:9091/ '
             script{ zip zipFile: 'lighthouse-report.zip', archive: false, dir: 'lighthouse-report' }
