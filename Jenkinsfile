@@ -29,15 +29,15 @@ pipeline {
                   }
                 }
         }
-        stage('Lighthouse Test'){
+        stage('Lighthouse test'){
             steps{
             sh 'mkdir lighthouse-report'
             sh 'lighthouse --chrome-flags="--disable-gpu --headless --enable-logging --no-sandbox" --output json --output html --output-path lighthouse-report/report.json http://test.tiendaluzsavinon.com:9091/ '
-            zip zipFile: 'lighthouse-report.zip', archive: false, dir: 'lighthouse-report'
+            script{ zip zipFile: 'lighthouse-report.zip', archive: false, dir: 'lighthouse-report' }
             archiveArtifacts artifacts: 'lighthouse-report.zip', fingerprint: true
             }
         }
-        stage('Production deploy') {
+        stage('Produccion') {
             steps {
                 echo 'Test'
             }
