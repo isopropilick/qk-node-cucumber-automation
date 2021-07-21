@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        PATH = "$PATH:/DEV"
+        }
     stages {
         stage('Build') {
             steps {
@@ -9,7 +12,6 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'export PATH=$PATH:/DEV'
                 sh 'echo $PATH'
                 sh 'npm test'
             }
