@@ -6,7 +6,7 @@ Feature: Pagina de registro
     Given Abro el portal de Montepio
     Then Cierro el modal informativo
     Then Hago click en el boton "Registro"
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono masculino como mi genero
     Then Ingreso mi nombre
     Then Ingreso mi segundo nombre
@@ -23,16 +23,16 @@ Feature: Pagina de registro
     Then Ingreso mi dia de nacimiento
     Then Acepto los terminos y condiciones
     Then Hago click en el boton "siguiente"
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono mi pais de nacimiento
     Then Selecciono mi nacionalidad
     Then Ingreso mi codigo postal
     Then Selecciono un pais
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono un estado
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono una delegacion
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono una colonia
     Then Ingreso mi calle
     Then Ingreso mi numero exterior
@@ -41,7 +41,7 @@ Feature: Pagina de registro
     Given Abro el portal de Montepio
     Then Cierro el modal informativo
     Then Hago click en el boton "Registro"
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono femenino como mi genero
     Then Ingreso mi nombre
     Then Ingreso mi segundo nombre
@@ -58,16 +58,16 @@ Feature: Pagina de registro
     Then Ingreso mi dia de nacimiento
     Then Acepto los terminos y condiciones
     Then Hago click en el boton "siguiente"
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono mi pais de nacimiento
     Then Selecciono mi nacionalidad
     Then Ingreso mi codigo postal
     Then Selecciono un pais
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono un estado
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono una delegacion
-    Then Espero 5 segundos
+    Then Espero 8 segundos
     Then Selecciono una colonia
     Then Ingreso mi calle
     Then Ingreso mi numero exterior
