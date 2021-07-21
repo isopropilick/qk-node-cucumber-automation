@@ -28,11 +28,11 @@ Feature: Pagina de registro
     Then Selecciono mi nacionalidad
     Then Ingreso mi codigo postal
     Then Selecciono un pais
-    Then Espero 15 segundos
+    Then Espero 20 segundos
     Then Selecciono un estado
-    Then Espero 15 segundos
+    Then Espero 20 segundos
     Then Selecciono una delegacion
-    Then Espero 15 segundos
+    Then Espero 20 segundos
     Then Selecciono una colonia
     Then Ingreso mi calle
     Then Ingreso mi numero exterior
@@ -63,11 +63,11 @@ Feature: Pagina de registro
     Then Selecciono mi nacionalidad
     Then Ingreso mi codigo postal
     Then Selecciono un pais
-    Then Espero 10 segundos
+    Then Espero 20 segundos
     Then Selecciono un estado
-    Then Espero 10 segundos
+    Then Espero 20 segundos
     Then Selecciono una delegacion
-    Then Espero 10 segundos
+    Then Espero 20 segundos
     Then Selecciono una colonia
     Then Ingreso mi calle
     Then Ingreso mi numero exterior
