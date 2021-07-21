@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'export PATH=$PATH:/DEV'
                 sh 'npm install'
             }
         }
