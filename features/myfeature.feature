@@ -23,7 +23,7 @@ Feature: Pagina de registro
     Then Ingreso mi mes de nacimiento
     Then Ingreso mi dia de nacimiento
     Then Acepto los terminos y condiciones
-    Then Hago click en el boton "siguiente"
+    Then Hago clicks en el boton "siguiente"
     Then Espero 8 segundos
     Then Selecciono mi pais de nacimiento
     Then Selecciono mi nacionalidad
