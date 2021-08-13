@@ -18,7 +18,8 @@ triggers {
         }
     stages {
         stage('Lighthouse test'){
-            sh 'echo $PATH'
+            steps {
+                sh 'echo $PATH'
             }
         }
         stage('Produccion') {
@@ -27,5 +28,4 @@ triggers {
             }
         }
     }
-
 }
