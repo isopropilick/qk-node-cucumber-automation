@@ -1,17 +1,17 @@
 pipeline {
     agent any
 triggers {
-    GenericTrigger causeString: 'Generic Cause',
-                    genericVariables: [
-                    [defaultValue: '', key: 'URL', regexpFilter: '', value: ''],
-                    [defaultValue: '', key: 'TARGET_URL', regexpFilter: '', value: '']
-                    ],
+    GenericTrigger( genericVariables: [
+                   [defaultValue: '', key: 'URL', regexpFilter: '', value: ''],
+                   [defaultValue: '', key: 'TARGET_URL', regexpFilter: '', value: '']
+                   ],
+                    causeString: 'Generic Cause',
                     printContributedVariables: true,
                     regexpFilterExpression: '',
                     regexpFilterText: '',
                     silentResponse: true,
                     token: 'aa123',
-                    tokenCredentialId: ''
+                    tokenCredentialId: '')
 }
     environment {
         PATH = "$PATH:/DEV"
