@@ -1,7 +1,7 @@
 pipeline {
     agent any
 triggers {
-    GenericTrigger  causeString: 'Generic Cause',
+    GenericTrigger causeString: 'Generic Cause',
                     genericVariables: [
                     [defaultValue: '', key: 'URL', regexpFilter: '', value: ''],
                     [defaultValue: '', key: 'TARGET_URL', regexpFilter: '', value: '']
