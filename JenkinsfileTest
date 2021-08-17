@@ -24,12 +24,12 @@ triggers {
     stages {
         stage('e2e test'){
             steps {
-                sh 'echo $PATH'
+                sh 'npm install'
+                sh 'npm test'
             }
         }
         stage('Process build') {
             steps {
-                echo 'Test'
                 script{
                     if ("${env.CAUSE}".contains("Triggered by job")){
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
