@@ -1,7 +1,7 @@
 pipeline {
     agent any
 triggers {
-    GenericTrigger
+    GenericTrigger(
         causeString: 'Triggered by job # $Buildid from $Buildurl',
         genericHeaderVariables:[
             [key: 'Returnurl', regexpFilter: ''],
@@ -16,6 +16,7 @@ triggers {
         regexpFilterText: '',
         token: '',
         tokenCredentialId: 'commtok'
+    )
 }
     environment {
         PATH = "$PATH:/DEV"
