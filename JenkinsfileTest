@@ -30,7 +30,7 @@ triggers {
             steps {
                 echo 'Test'
                 script{
-                    if (returnurl != ""){
+                    if (returnurl != null){
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
                     }else{
                         println("Local execution")
