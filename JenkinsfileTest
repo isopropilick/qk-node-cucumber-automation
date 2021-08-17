@@ -33,10 +33,8 @@ triggers {
                     def root = readJSON file:'dummy.json'
                     def keyList = root['files'].keySet()
                     def filesmap = [:]
-                    println(keyList)
                     for (String key : keyList){
                         filesmap[key] = root.files."${key}"
-                        println(filesmap[key])
                         writeJSON file: "allure-results/${key}", json:filesmap[key]
                     // Fake allure gen
                     }
@@ -56,7 +54,7 @@ triggers {
                 script{
                     def  FILES_LIST = sh (script: "ls allure-results/", returnStdout: true).trim()
                     echo "FILES_LIST : ${FILES_LIST}"
-                    String[] parsedfiles = title.split(" ")
+                    def parsedfiles = FILES_LIST.split(" ")
                     echo "${parsedfiles}"
                     if ("${env.CAUSE}".contains("Triggered by job")){
                         def data = readJSON file:'dummy.json'
