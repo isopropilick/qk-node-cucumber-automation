@@ -1,17 +1,21 @@
 pipeline {
     agent any
 triggers {
-    GenericTrigger( genericVariables: [
-                   [defaultValue: '', key: 'URL', regexpFilter: '', value: ''],
-                   [defaultValue: '', key: 'TARGET_URL', regexpFilter: '', value: '']
-                   ],
-                    causeString: 'Generic Cause',
-                    printContributedVariables: true,
-                    regexpFilterExpression: '',
-                    regexpFilterText: '',
-                    silentResponse: true,
-                    token: 'aa123',
-                    tokenCredentialId: '')
+    GenericTrigger
+        causeString: 'Triggered by job # $Buildid from $Buildurl',
+        genericHeaderVariables:[
+            [key: 'Returnurl', regexpFilter: ''],
+            [key: 'Testurl', regexpFilter: ''],
+            [key: 'Buildurl', regexpFilter: ''],
+            [key: 'Buildid', regexpFilter: ''],
+            [key: 'Buildnumber', regexpFilter: '']
+        ],
+        printContributedVariables: true,
+        printPostContent: true,
+        regexpFilterExpression: '',
+        regexpFilterText: '',
+        token: '',
+        tokenCredentialId: 'commtok'
 }
     environment {
         PATH = "$PATH:/DEV"
