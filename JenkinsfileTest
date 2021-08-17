@@ -29,9 +29,11 @@ triggers {
             }
         }
         stage('lighthouse test'){
-            script{
-                sh 'npx lighthouse-ci https://www.google.com --jsonReport --report=.'
-                lighthouseReport('./report.json')
+            steps{
+                script{
+                    sh 'npx lighthouse-ci https://www.google.com --jsonReport --report=.'
+                    lighthouseReport('./report.json')
+                }
             }
         }
         stage('Process build') {
