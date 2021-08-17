@@ -28,18 +28,18 @@ triggers {
                 sh "mkdir allure-results"
                 sh 'npm install'
                 sh 'npm test'
-
-                // Fake allure gen
-                def root = readJSON file:'dummy.json'
-                def keyList = root['files'].keySet()
-                def filesmap = [:]
-                println(keyList)
-                for (String key : keyList){
-                    filesmap[key] = root.files."${key}"
-                    println(filesmap[key])
-                    writeJSON file: "allure-results/${key}", json:filesmap[key]
-                // Fake allure gen
-
+                script{
+                    // Fake allure gen
+                    def root = readJSON file:'dummy.json'
+                    def keyList = root['files'].keySet()
+                    def filesmap = [:]
+                    println(keyList)
+                    for (String key : keyList){
+                        filesmap[key] = root.files."${key}"
+                        println(filesmap[key])
+                        writeJSON file: "allure-results/${key}", json:filesmap[key]
+                    // Fake allure gen
+                    }
                 }
             }
         }
