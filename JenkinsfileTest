@@ -14,13 +14,13 @@ triggers {
         printPostContent: true,
         regexpFilterExpression: '',
         regexpFilterText: '',
-        token: credentials('commtok')
+        token: "${env.COMMKEY}"
         //tokenCredentialId: 'commtok'
     )
 }
     environment {
         PATH = "$PATH:/DEV"
-        //COMMKEY = credentials('commtok')
+        COMMKEY = credentials('commtok')
         }
     stages {
         stage('e2e test'){
