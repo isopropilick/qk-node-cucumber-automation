@@ -30,9 +30,9 @@ triggers {
         stage('Process build') {
             steps {
                 echo 'Test'
-                script{
+                //script{
                     //def quit = httpRequest url:"${env.DEV_URL}", httpMode: 'POST'
-                }
+                //}
             }
         }
     }
