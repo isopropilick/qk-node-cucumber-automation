@@ -19,7 +19,7 @@ triggers {
 }
     environment {
         PATH = "$PATH:/DEV"
-
+        CAUSE = "${currentBuild.getBuildCauses()[0].shortDescription}"
         }
     stages {
         stage('e2e test'){
@@ -31,7 +31,7 @@ triggers {
             steps {
                 echo 'Test'
                 script{
-                    println ("CAUSE ${currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause).properties}")
+                    echo "Build caused by ${env.CAUSE}"
                     //if (BUILD_CAUSE_JSON != null){
 
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
