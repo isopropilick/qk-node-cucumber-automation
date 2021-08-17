@@ -2,7 +2,7 @@ pipeline {
     agent any
 triggers {
     GenericTrigger(
-        causeString: 'Triggered by job # $Buildid from $Buildurl',
+        causeString: 'Triggered by job # ${Buildid} from ${Buildurl}',
         genericHeaderVariables:[
             [key: 'Returnurl', regexpFilter: ''],
             [key: 'Testurl', regexpFilter: ''],
@@ -14,13 +14,11 @@ triggers {
         printPostContent: true,
         regexpFilterExpression: '',
         regexpFilterText: '',
-        //token: "${env.COMMKEY}"
         tokenCredentialId: 'commtok'
     )
 }
     environment {
         PATH = "$PATH:/DEV"
-        //COMMKEY = credentials('commtok')
         }
     stages {
         stage('e2e test'){
@@ -32,7 +30,11 @@ triggers {
             steps {
                 echo 'Test'
                 script{
-                    def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
+                    if (returnurl != ""){
+                        def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
+                    }else{
+                        println("Local execution")
+                    }
                 }
             }
         }
