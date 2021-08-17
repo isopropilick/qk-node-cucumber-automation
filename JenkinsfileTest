@@ -31,13 +31,11 @@ triggers {
             steps {
                 echo 'Test'
                 script{
-                    echo "Build caused by ${env.CAUSE}"
-                    //if (BUILD_CAUSE_JSON != null){
-
+                    if (${env.CAUSE}.contains("Triggered by job")){
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
-                    //}else{
-                    //    println("Local execution")
-                    //}
+                    }else{
+                        println("Local execution")
+                    }
                 }
             }
         }
