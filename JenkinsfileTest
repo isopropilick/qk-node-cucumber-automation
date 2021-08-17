@@ -31,7 +31,7 @@ triggers {
             steps {
                 echo 'Test'
                 script{
-                    buildcauseS=$(curl --silent ${BUILD_URL}/api/json | tr "{}" "\n" | grep "Started by")
+                    buildcauseS=sh(script:"curl --silent ${BUILD_URL}/api/json | tr \"{}\" \"\n\" | grep \"Started by\"", returnStdout: true).trim()
                     //if (BUILD_CAUSE_JSON != null){
                         println(buildcauseS)
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
