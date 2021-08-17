@@ -1,6 +1,5 @@
-var {defineSupportCode} = require('cucumber');
+const { Then, Given } = require('@cucumber/cucumber');
 
-defineSupportCode(function({Given, When, Then}) {
   Given('Abro el portal de Montepio',{timeout: 60 * 1000}, function() {
   return this.driver.get('http://test.tiendaluzsavinon.com:9091/');
   });
@@ -96,5 +95,4 @@ defineSupportCode(function({Given, When, Then}) {
   });
   Then('Ingreso mi numero exterior',{timeout: 60 * 1000}, function () {
   return this.driver.findElement({id:"outdoorNumber"}).sendKeys('613');
-  });
-});
+  })

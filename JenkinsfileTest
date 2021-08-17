@@ -42,7 +42,8 @@ triggers {
                     def  FILES_LIST = sh (script: "ls allure-results/", returnStdout: true).trim()
                     echo "FILES_LIST : ${FILES_LIST}"
                     if ("${env.CAUSE}".contains("Triggered by job")){
-                        def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
+                        def data = readJSON file:'dummy.json'
+                        def quit = httpRequest url:"${returnurl}", httpMode: 'POST', contentType: 'TEXT_PLAIN', requestBody:"${data}"
                     }else{
                         println("Local execution")
                     }

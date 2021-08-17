@@ -4,11 +4,8 @@ var webdriver = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 const firefox = require('selenium-webdriver/firefox');
 var until = webdriver.until;
-var By = webdriver.By;
-var {defineSupportCode} = require('cucumber');
-var {elementIsNotVisible} = require("selenium-webdriver");
 var Condition = webdriver.Condition;
-const { defineParameterType } = require('cucumber')
+const { defineParameterType,setWorldConstructor, World } = require('@cucumber/cucumber')
 const screen = {
   width: 1920,
   height: 1080
@@ -24,15 +21,12 @@ until.elementIsNotPresent = function elementIsNotPresent(locator) {
     });
   });
 };
-
-function CustomWorld() {
-  this.driver = new webdriver.Builder()
+class CustomWorld extends World {
+  driver = new webdriver.Builder()
     .forBrowser('chrome')
     .setChromeOptions(new chrome.Options().headless().windowSize(screen))
     .setFirefoxOptions(new firefox.Options().headless().windowSize(screen))
     .build();
 }
 
-defineSupportCode(function({setWorldConstructor}) {
-  setWorldConstructor(CustomWorld)
-})
+setWorldConstructor(CustomWorld)
