@@ -28,6 +28,10 @@ triggers {
                 sh 'npm test'
             }
         }
+        stage('lighthouse test'){
+            sh 'npx lighthouse-ci https://www.google.com --jsonReport --report=.'
+            lighthouseReport('./report.json')
+        }
         stage('Process build') {
             steps {
                 script{
