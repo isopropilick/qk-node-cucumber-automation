@@ -19,6 +19,7 @@ triggers {
 }
     environment {
         PATH = "$PATH:/DEV"
+
         }
     stages {
         stage('e2e test'){
@@ -30,11 +31,13 @@ triggers {
             steps {
                 echo 'Test'
                 script{
-                    if (returnurl != null){
+                    buildcauseS=$(curl --silent ${BUILD_URL}/api/json | tr "{}" "\n" | grep "Started by")
+                    //if (BUILD_CAUSE_JSON != null){
+                        println(buildcauseS)
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
-                    }else{
-                        println("Local execution")
-                    }
+                    //}else{
+                    //    println("Local execution")
+                    //}
                 }
             }
         }
