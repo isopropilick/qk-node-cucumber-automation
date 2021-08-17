@@ -39,6 +39,8 @@ triggers {
         stage('Process build') {
             steps {
                 script{
+                    files = findFiles(glob: 'allure-results/*')
+                    println(files)
                     if ("${env.CAUSE}".contains("Triggered by job")){
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
                     }else{
