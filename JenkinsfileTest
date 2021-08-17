@@ -31,7 +31,7 @@ triggers {
             steps {
                 echo 'Test'
                 script{
-                    if (${env.CAUSE}.contains("Triggered by job")){
+                    if ("${env.CAUSE}".contains("Triggered by job")){
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
                     }else{
                         println("Local execution")
