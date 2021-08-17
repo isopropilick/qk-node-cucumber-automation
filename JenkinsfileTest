@@ -22,14 +22,17 @@ triggers {
         PATH = "$PATH:/DEV"
         }
     stages {
-        stage('Lighthouse test'){
+        stage('e2e test'){
             steps {
                 sh 'echo $PATH'
             }
         }
-        stage('Produccion') {
+        stage('Process build') {
             steps {
                 echo 'Test'
+                script{
+                    //def quit = httpRequest url:"${env.DEV_URL}", httpMode: 'POST'
+                }
             }
         }
     }
