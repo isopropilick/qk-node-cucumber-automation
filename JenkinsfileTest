@@ -14,8 +14,8 @@ triggers {
         printPostContent: true,
         regexpFilterExpression: '',
         regexpFilterText: '',
-        token: '',
-        tokenCredentialId: 'commtok'
+        token: 'commtok'
+        //tokenCredentialId: 'commtok'
     )
 }
     environment {
