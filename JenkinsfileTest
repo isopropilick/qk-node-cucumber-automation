@@ -39,7 +39,7 @@ triggers {
         stage('Process build') {
             steps {
                 script{
-                    def  FILES_LIST = sh (script: "ls   '${workers_dir}/allure-results/'", returnStdout: true).trim()
+                    def  FILES_LIST = sh (script: "ls allure-results/'", returnStdout: true).trim()
                     echo "FILES_LIST : ${FILES_LIST}"
                     if ("${env.CAUSE}".contains("Triggered by job")){
                         def quit = httpRequest url:"${returnurl}", httpMode: 'POST'
